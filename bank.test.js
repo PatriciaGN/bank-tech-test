@@ -59,4 +59,10 @@ describe('Bank', () => {
       bank.withdrawal(600, '15-01-2023');
     }).toThrow('Insuficient funds');
   });
+
+  it('calculates the correct balance when user makes a deposit and withdraws funds', () => {
+    bank.deposit(1000, '15-01-2023');
+    bank.withdrawal(500, '15-01-2023');
+    expect(bank.balance).toEqual(500);
+  });
 });
