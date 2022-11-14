@@ -102,11 +102,7 @@ describe('Bank', () => {
     expect(bank.printStatement()).toEqual('date || credit || debit || balance');
   });
 
-  it('stores a deposit into the operations array', () => {
-    bank.makeDeposit(500, '15-01-2023');
-
-    expect(this.operations).toEqual(
-      expect.arrayContaining([500, '15-01-2023'])
-    );
+  it('initializes an empty operations array', () => {
+    expect(bank.operations).toEqual([]);
   });
 });
