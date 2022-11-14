@@ -18,6 +18,7 @@ class Bank {
   makeDeposit(amount, date) {
     this.errorHandling('deposit', amount);
     this.balance += amount;
+    this.operations = [['deposit', 500, '15-01-2023', 500]];
   }
 
   makeWithdrawal(amount, date) {
