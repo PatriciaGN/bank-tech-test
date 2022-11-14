@@ -73,4 +73,10 @@ describe('Bank', () => {
     bank.withdrawal(500, '15-01-2023');
     expect(bank.balance).toEqual(200);
   });
+
+  it('throws an error if amount is a negative number', () => {
+    expect(() => {
+      bank.withdrawal(-200, '10-01-2023');
+    }).toThrow('TypeError');
+  });
 });
