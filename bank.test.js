@@ -21,9 +21,15 @@ describe('Bank', () => {
     expect(bank.balance).toEqual(1500);
   });
 
-  it('returns an error if balance is a negative number', () => {
+  it('returns an error if amount is a negative number', () => {
     expect(() => {
       bank.deposit(-200, '10-01-2023');
-    }).toThrow(TypeError);
+    }).toThrow('TypeError');
+  });
+
+  it('returns an error if amount equals zero', () => {
+    expect(() => {
+      bank.deposit(0, '10-01-2023');
+    }).toThrow('TypeError');
   });
 });
