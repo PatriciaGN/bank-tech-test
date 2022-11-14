@@ -101,4 +101,12 @@ describe('Bank', () => {
   it('prints a bank statement when no operations have been made', () => {
     expect(bank.printStatement()).toEqual('date || credit || debit || balance');
   });
+
+  it('stores a deposit into the operations array', () => {
+    bank.makeDeposit(500, '15-01-2023');
+
+    expect(this.operations).toEqual(
+      expect.arrayContaining([500, '15-01-2023'])
+    );
+  });
 });
