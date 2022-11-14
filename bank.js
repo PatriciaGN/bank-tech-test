@@ -4,7 +4,7 @@ class Bank {
   }
 
   deposit(amount, date) {
-    this.balance = amount;
+    this.balance += amount;
   }
 }
 
