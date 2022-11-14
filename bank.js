@@ -1,6 +1,7 @@
 class Bank {
-  constructor() {
+  constructor(operations = []) {
     this.balance = 0;
+    this.operations = operations;
   }
 
   errorHandling(operation, amount) {
