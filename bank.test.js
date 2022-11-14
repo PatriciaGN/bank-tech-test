@@ -111,4 +111,17 @@ describe('Bank', () => {
 
     expect(bank.operations).toContainEqual(['deposit', 500, '15-01-2023', 500]);
   });
+
+  it('stores two deposits into the operations array', () => {
+    bank.makeDeposit(500, '15-01-2023');
+    bank.makeDeposit(600, '16-01-2023');
+
+    expect(bank.operations.length).toBe(2);
+    expect(bank.operations).toContainEqual([
+      'deposit',
+      600,
+      '16-01-2023',
+      1100,
+    ]);
+  });
 });
