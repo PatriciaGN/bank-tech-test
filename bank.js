@@ -14,12 +14,12 @@ class Bank {
     }
   }
 
-  deposit(amount, date) {
+  makeDeposit(amount, date) {
     this.errorHandling('deposit', amount);
     this.balance += amount;
   }
 
-  withdrawal(amount, date) {
+  makeWithdrawal(amount, date) {
     this.errorHandling('withdrawal', amount);
     this.balance -= amount;
   }
