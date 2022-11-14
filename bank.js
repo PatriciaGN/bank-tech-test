@@ -4,7 +4,7 @@ class Bank {
   }
 
   deposit(amount, date) {
-    if (amount <= 0 || amount === 'string' || amount === true) {
+    if (amount <= 0 || isNaN(parseFloat(amount))) {
       throw new TypeError('TypeError');
     }
     this.balance += amount;
