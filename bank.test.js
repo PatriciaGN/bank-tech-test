@@ -44,4 +44,10 @@ describe('Bank', () => {
       bank.deposit(true, '10-01-2023');
     }).toThrow('TypeError');
   });
+
+  it("user can't withdraw money if balance is zero", () => {
+    expect(() => {
+      bank.withdrawal(500, '15-01-2023');
+    }).toThrow('Insuficient funds');
+  });
 });
