@@ -11,6 +11,9 @@ class Bank {
   }
 
   withdrawal(amount, date) {
+    if (amount < 0) {
+      throw new TypeError('TypeError');
+    }
     if (amount > this.balance) {
       throw new Error('Insuficient funds');
     }
