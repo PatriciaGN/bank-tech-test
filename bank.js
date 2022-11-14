@@ -11,7 +11,7 @@ class Bank {
   }
 
   withdrawal(amount, date) {
-    if (amount <= 0 || amount === 'string') {
+    if (amount <= 0 || isNaN(parseFloat(amount))) {
       throw new TypeError('TypeError');
     }
     if (amount > this.balance) {
