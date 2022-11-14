@@ -32,4 +32,10 @@ describe('Bank', () => {
       bank.deposit(0, '10-01-2023');
     }).toThrow('TypeError');
   });
+
+  it('returns an error if amount is not a number', () => {
+    expect(() => {
+      bank.deposit('string', '10-01-2023');
+    }).toThrow('TypeError');
+  });
 });
