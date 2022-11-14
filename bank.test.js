@@ -65,4 +65,12 @@ describe('Bank', () => {
     bank.withdrawal(500, '15-01-2023');
     expect(bank.balance).toEqual(500);
   });
+
+  it('calculates the correct balance when user makes a deposit and withdraws funds', () => {
+    bank.deposit(500, '15-01-2023');
+    bank.deposit(200, '15-01-2023');
+
+    bank.withdrawal(500, '15-01-2023');
+    expect(bank.balance).toEqual(200);
+  });
 });
