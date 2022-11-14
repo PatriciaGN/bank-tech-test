@@ -85,4 +85,10 @@ describe('Bank', () => {
       bank.withdrawal(0, '10-01-2023');
     }).toThrow('TypeError');
   });
+
+  it('throws an error if amount is a string', () => {
+    expect(() => {
+      bank.withdrawal('string', '10-01-2023');
+    }).toThrow('TypeError');
+  });
 });
