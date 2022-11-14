@@ -23,6 +23,10 @@ class Bank {
     this.errorHandling('withdrawal', amount);
     this.balance -= amount;
   }
+
+  printStatement() {
+    return 'date || credit || debit || balance';
+  }
 }
 
 module.exports = Bank;
