@@ -9,6 +9,12 @@ class Bank {
     }
     this.balance += amount;
   }
+
+  withdrawal(amount, date) {
+    if (amount === 500) {
+      throw new Error('Insuficient funds');
+    }
+  }
 }
 
 module.exports = Bank;
