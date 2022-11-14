@@ -51,5 +51,12 @@ describe('Bank', () => {
     }).toThrow('Insuficient funds');
   });
 
-  it('throws an error if user tries to withdraw money and the amount is larger than the balance', () => {});
+  it('throws an error if user tries to withdraw money and the amount is larger than the balance', () => {
+    bank.deposit(200, '10-01-2023');
+    console.log(bank.balance);
+
+    expect(() => {
+      bank.withdrawal(600, '15-01-2023');
+    }).toThrow('Insuficient funds');
+  });
 });
