@@ -14,7 +14,7 @@ class Bank {
     if (amount > this.balance) {
       throw new Error('Insuficient funds');
     }
-    this.balance = 500;
+    this.balance -= amount;
   }
 }
 
