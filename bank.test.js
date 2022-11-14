@@ -33,9 +33,15 @@ describe('Bank', () => {
     }).toThrow('TypeError');
   });
 
-  it('returns an error if amount is not a number', () => {
+  it('returns an error if amount is a string', () => {
     expect(() => {
       bank.deposit('string', '10-01-2023');
+    }).toThrow('TypeError');
+  });
+
+  it('returns an error if amount is a boolean', () => {
+    expect(() => {
+      bank.deposit(true, '10-01-2023');
     }).toThrow('TypeError');
   });
 });
