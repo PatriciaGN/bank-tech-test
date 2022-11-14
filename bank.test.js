@@ -21,33 +21,35 @@ describe('Bank', () => {
     expect(bank.balance).toEqual(1500);
   });
 
-  it('returns an error if amount is a negative number', () => {
+  it('throws an error if amount is a negative number', () => {
     expect(() => {
       bank.deposit(-200, '10-01-2023');
     }).toThrow('TypeError');
   });
 
-  it('returns an error if amount equals zero', () => {
+  it('throws an error if amount equals zero', () => {
     expect(() => {
       bank.deposit(0, '10-01-2023');
     }).toThrow('TypeError');
   });
 
-  it('returns an error if amount is a string', () => {
+  it('throws an error if amount is a string', () => {
     expect(() => {
       bank.deposit('string', '10-01-2023');
     }).toThrow('TypeError');
   });
 
-  it('returns an error if amount is a boolean', () => {
+  it('throws an error if amount is a boolean', () => {
     expect(() => {
       bank.deposit(true, '10-01-2023');
     }).toThrow('TypeError');
   });
 
-  it("user can't withdraw money if balance is zero", () => {
+  it('throws an error if a user tries to withdraw money and balance is zero', () => {
     expect(() => {
       bank.withdrawal(500, '15-01-2023');
     }).toThrow('Insuficient funds');
   });
+
+  it('throws an error if user tries to withdraw money and the amount is larger than the balance', () => {});
 });
