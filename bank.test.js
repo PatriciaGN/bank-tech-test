@@ -98,7 +98,7 @@ describe('Bank', () => {
     }).toThrow('TypeError');
   });
 
-  it('prints a bank statement when at least one operation has been made', () => {
+  it('prints a bank statement when no operations have been made', () => {
     expect(bank.printStatement()).toEqual('date || credit || debit || balance');
   });
 });
