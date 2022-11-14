@@ -79,4 +79,10 @@ describe('Bank', () => {
       bank.withdrawal(-200, '10-01-2023');
     }).toThrow('TypeError');
   });
+
+  it('throws an error if amount equals zero', () => {
+    expect(() => {
+      bank.withdrawal(0, '10-01-2023');
+    }).toThrow('TypeError');
+  });
 });
