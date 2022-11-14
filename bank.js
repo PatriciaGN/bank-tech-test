@@ -11,7 +11,7 @@ class Bank {
   }
 
   withdrawal(amount, date) {
-    if (amount <= 0) {
+    if (amount <= 0 || amount === 'string') {
       throw new TypeError('TypeError');
     }
     if (amount > this.balance) {
