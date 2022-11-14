@@ -14,4 +14,10 @@ describe('Bank', () => {
     bank.deposit(1000, '10-01-2023');
     expect(bank.balance).toEqual(1000);
   });
+
+  it('balance changes when more two deposits are made', () => {
+    bank.deposit(1000, '10-01-2023');
+    bank.deposit(500, '15-01-2023');
+    expect(bank.balance).toEqual(1500);
+  });
 });
