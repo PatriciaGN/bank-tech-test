@@ -99,6 +99,6 @@ describe('Bank', () => {
   });
 
   it('prints a bank statement when at least one operation has been made', () => {
-    expect(bank.statement).toEqual('date || credit || debit || balance');
+    expect(bank.printStatement()).toEqual('date || credit || debit || balance');
   });
 });
