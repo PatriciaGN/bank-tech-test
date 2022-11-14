@@ -97,4 +97,8 @@ describe('Bank', () => {
       bank.makeWithdrawal(true, '10-01-2023');
     }).toThrow('TypeError');
   });
+
+  it('prints a bank statement when at least one operation has been made', () => {
+    expect(bank.statement).toEqual('date || credit || debit || balance');
+  });
 });
