@@ -1,8 +1,9 @@
-require;
+const Bank = require('./bank.js');
 
 describe('Bank', () => {
+  let bank;
   beforeEach(() => {
-    const bank = new Bank();
+    bank = new Bank();
   });
 
   it('displays the default balance', () => {
