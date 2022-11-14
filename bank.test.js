@@ -105,4 +105,10 @@ describe('Bank', () => {
   it('initializes an empty operations array', () => {
     expect(bank.operations).toEqual([]);
   });
+
+  it('stores a deposit into the operations array', () => {
+    bank.makeDeposit(500, '15-01-2023');
+
+    expect(bank.operations).toContainEqual(['deposit', 500, '15-01-2023', 500]);
+  });
 });
