@@ -24,6 +24,7 @@ class Bank {
   makeWithdrawal(amount, date) {
     this.errorHandling('withdrawal', amount);
     this.balance -= amount;
+    this.operations.push(['withdrawal', amount, date, this.balance]);
   }
 }
 
