@@ -37,4 +37,18 @@ describe('StatementPrinter', () => {
       'date || credit || debit || balance\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00'
     );
   });
+
+  it('prints a bank statement when one deposit and one withdrawal have been made', () => {
+    let fakeBank = {
+      balance: 1000,
+      operations: [
+        ['deposit', 2000, '10/01/2023', 2000],
+        ['deposit', 1000, '13/01/2023', 1000],
+      ],
+    };
+    let statementPrinter = new StatementPrinter(fakeBank);
+    expect(statementPrinter.printStatement()).toEqual(
+      'date || credit || debit || balance\n13/01/2023 || || 1000.00 || 1000.00\n10/01/2023 || 2000.00 || || 2000.00'
+    );
+  });
 });
