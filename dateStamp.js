@@ -9,7 +9,7 @@ class DateStamp {
     const currentYear = this.currentDate.getFullYear();
 
     const dateString =
-      currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
+      currentDayOfMonth + '/' + (currentMonth + 1) + '/' + currentYear;
     // "27-11-2020"
     return dateString;
   }
