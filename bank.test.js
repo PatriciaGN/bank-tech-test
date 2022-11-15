@@ -23,44 +23,6 @@ describe('Bank', () => {
     expect(bank.balance).toEqual(1500);
   });
 
-  it('throws an error if amount is a negative number', () => {
-    expect(() => {
-      bank.makeDeposit(-200);
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount equals zero', () => {
-    expect(() => {
-      bank.makeDeposit(0);
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount is a string', () => {
-    expect(() => {
-      bank.makeDeposit('string');
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount is a boolean', () => {
-    expect(() => {
-      bank.makeDeposit(true);
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if a user tries to withdraw money and balance is zero', () => {
-    expect(() => {
-      bank.makeWithdrawal(500);
-    }).toThrow('Insuficient funds');
-  });
-
-  it('throws an error if user tries to withdraw money and the amount is larger than the balance', () => {
-    bank.makeDeposit(200);
-    console.log(bank.balance);
-    expect(() => {
-      bank.makeWithdrawal(600);
-    }).toThrow('Insuficient funds');
-  });
-
   it('calculates the correct balance when user makes a deposit and withdraws funds', () => {
     bank.makeDeposit(1000);
     bank.makeWithdrawal(500);
@@ -73,30 +35,6 @@ describe('Bank', () => {
 
     bank.makeWithdrawal(500);
     expect(bank.balance).toEqual(200);
-  });
-
-  it('throws an error if amount is a negative number', () => {
-    expect(() => {
-      bank.makeWithdrawal(-200);
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount equals zero', () => {
-    expect(() => {
-      bank.makeWithdrawal(0);
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount is a string', () => {
-    expect(() => {
-      bank.makeWithdrawal('string');
-    }).toThrow('TypeError');
-  });
-
-  it('throws an error if amount is a boolean', () => {
-    expect(() => {
-      bank.makeWithdrawal(true);
-    }).toThrow('TypeError');
   });
 
   it('initializes an empty operations array', () => {
