@@ -120,4 +120,17 @@ describe('Bank', () => {
       1100,
     ]);
   });
+
+  it('stores a withdrawal into the operations array', () => {
+    bank.makeDeposit(1000, '15-01-2023');
+    bank.makeWithdrawal(500, '16-01-2023');
+
+    expect(bank.operations.length).toBe(2);
+    expect(bank.operations).toContainEqual([
+      'withdrawal',
+      500,
+      '16-01-2023',
+      500,
+    ]);
+  });
 });
