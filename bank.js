@@ -6,11 +6,11 @@ class Bank {
     this.operations = operations;
   }
 
-  errorHandling(operation, amount) {
+  errorHandling(operationType, amount) {
     if (amount <= 0 || isNaN(parseFloat(amount))) {
       throw new TypeError('TypeError');
     }
-    if (operation === 'withdrawal') {
+    if (operationType === 'withdrawal') {
       if (amount > this.balance) {
         throw new Error('Insuficient funds');
       }
@@ -18,15 +18,25 @@ class Bank {
   }
 
   makeDeposit(amount, date = new DateStamp().getDate()) {
-    let operation = 'deposit';
-    this.errorHandling(operation, amount);
-    this.operations.push([operation, amount, date, (this.balance += amount)]);
+    let operationType = 'deposit';
+    this.errorHandling(operationType, amount);
+    this.operations.push([
+      operationType,
+      amount,
+      date,
+      (this.balance += amount),
+    ]);
   }
 
   makeWithdrawal(amount, date = new DateStamp().getDate()) {
-    let operation = 'withdrawal';
-    this.errorHandling(operation, amount);
-    this.operations.push([operation, amount, date, (this.balance -= amount)]);
+    let operationType = 'withdrawal';
+    this.errorHandling(operationType, amount);
+    this.operations.push([
+      operationType,
+      amount,
+      date,
+      (this.balance -= amount),
+    ]);
   }
 }
 
