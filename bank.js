@@ -16,15 +16,16 @@ class Bank {
   }
 
   makeDeposit(amount, date) {
-    this.errorHandling('deposit', amount);
-    this.balance += amount;
-    this.operations.push(['deposit', amount, date, this.balance]);
+    let operation = 'deposit';
+    this.errorHandling(operation, amount);
+
+    this.operations.push([operation, amount, date, (this.balance += amount)]);
   }
 
   makeWithdrawal(amount, date) {
-    this.errorHandling('withdrawal', amount);
-    this.balance -= amount;
-    this.operations.push(['withdrawal', amount, date, this.balance]);
+    let operation = 'withdrawal';
+    this.errorHandling(operation, amount);
+    this.operations.push([operation, amount, date, (this.balance -= amount)]);
   }
 }
 
