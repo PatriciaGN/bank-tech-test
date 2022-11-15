@@ -133,4 +133,10 @@ describe('Bank', () => {
       500,
     ]);
   });
+
+  it('throws an error if date is incorrect format', () => {
+    expect(() => {
+      bank.makeDeposit(500, '10/01/2023');
+    }).toThrow('Incorrect date format');
+  });
 });

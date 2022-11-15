@@ -9,7 +9,7 @@ npm init -y
 npm install jest-environment-jsdom
 
 How to run the tests:
-npm run test
+jest
 
 ## Acceptance criteria
 
