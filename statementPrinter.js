@@ -7,7 +7,7 @@ class StatementPrinter {
     let amount = operation[1].toFixed(2);
     if (operation[0] === 'deposit') {
       return `${amount} || `; // toFixed(2) converts the value into a two decimals float
-    } else if (operation[0] === 'withdrawal') {
+    } else {
       return `|| ${amount} `;
     }
   }
