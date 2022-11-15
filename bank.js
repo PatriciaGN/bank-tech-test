@@ -1,3 +1,5 @@
+const DateStamp = require('./dateStamp');
+
 class Bank {
   constructor(operations = []) {
     this.balance = 0;
@@ -15,14 +17,13 @@ class Bank {
     }
   }
 
-  makeDeposit(amount, date) {
+  makeDeposit(amount, date = new DateStamp().getDate()) {
     let operation = 'deposit';
     this.errorHandling(operation, amount);
-
     this.operations.push([operation, amount, date, (this.balance += amount)]);
   }
 
-  makeWithdrawal(amount, date) {
+  makeWithdrawal(amount, date = new DateStamp().getDate()) {
     let operation = 'withdrawal';
     this.errorHandling(operation, amount);
     this.operations.push([operation, amount, date, (this.balance -= amount)]);
