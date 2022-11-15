@@ -15,4 +15,18 @@ describe('bank integration', () => {
       'date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00'
     );
   });
+
+  it('creates a correct bank statement after several operations', () => {
+    let bank = new Bank();
+    let statementPrinter = new StatementPrinter(bank);
+    let date = new DateStamp();
+
+    bank.makeDeposit(1000);
+    bank.makeDeposit(2000);
+    bank.makeWithdrawal(500);
+
+    expect(statementPrinter.printStatement()).toEqual(
+      `date || credit || debit || balance\n${date.getDate()} || || 500.00 || 2500.00\n${date.getDate()} || 2000.00 || || 3000.00\n${date.getDate()} || 1000.00 || || 1000.00`
+    );
+  });
 });
