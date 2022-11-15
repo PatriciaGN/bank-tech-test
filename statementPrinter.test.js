@@ -9,7 +9,7 @@ describe('StatementPrinter', () => {
 
       statementPrinter = new StatementPrinter(fakeBank);
 
-      expect(statementPrinter.creditOrDebit(fakeBank.operation)).toEqual(
+      expect(statementPrinter.printCreditOrDebit(fakeBank.operation)).toEqual(
         '100.00 || '
       );
     });
@@ -21,7 +21,7 @@ describe('StatementPrinter', () => {
 
       statementPrinter = new StatementPrinter(fakeBank);
 
-      expect(statementPrinter.creditOrDebit(fakeBank.operation)).toEqual(
+      expect(statementPrinter.printCreditOrDebit(fakeBank.operation)).toEqual(
         '|| 100.00 '
       );
     });
