@@ -1,5 +1,3 @@
-const Bank = require('./bank.js');
-
 class StatementPrinter {
   constructor(bank) {
     this.balance = bank.balance;
@@ -7,7 +5,18 @@ class StatementPrinter {
   }
 
   printStatement() {
-    return 'date || credit || debit || balance';
+    let statement = 'date || credit || debit || balance\n';
+    function printOperations(operation) {
+      if (operation[0] === 'deposit') {
+        statement += `${operation[2]} || ${operation[1].toFixed(
+          2
+        )} || || ${operation[3].toFixed(2)}`;
+      }
+    }
+    if (this.operations.length != 0) {
+      this.operations.forEach((operation) => printOperations(operation));
+    }
+    return statement;
   }
 }
 
