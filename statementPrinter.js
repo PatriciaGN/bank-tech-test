@@ -5,16 +5,18 @@ class StatementPrinter {
   }
 
   printStatement() {
-    let statement = 'date || credit || debit || balance\n';
+    let statement = 'date || credit || debit || balance';
     function printOperations(operation) {
       if (operation[0] === 'deposit') {
-        statement += `${operation[2]} || ${operation[1].toFixed(
+        statement += `\n${operation[2]} || ${operation[1].toFixed(
           2
         )} || || ${operation[3].toFixed(2)}`;
       }
     }
     if (this.operations.length != 0) {
-      this.operations.forEach((operation) => printOperations(operation));
+      this.operations
+        .reverse()
+        .forEach((operation) => printOperations(operation));
     }
     return statement;
   }
