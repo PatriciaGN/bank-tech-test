@@ -6,7 +6,9 @@ This is a bank application you can run from your command line using Node. You ca
 
 I decided to divide this program in different classes to stick to the single responsability principle.
 
-We have a Bank class that is responsible for handling the withdrawal and deposit operations as well as calculating the total balance and storing these operations in an array. There is an error handling function inside this class which could have been an independent class, but given its limited functionality, I decided to leave it inside our Bank class.
+We have a Bank class that is responsible for handling the withdrawal and deposit operations as well as calculating the total balance and storing these operations in an array.
+
+There is an error handling class which handles errors within the Bank class' functions.
 
 We also have a dateStamp class which is responsible for giving each operation a time stamp with the day, month and year where the operation was made.
 
