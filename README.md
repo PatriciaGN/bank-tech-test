@@ -1,12 +1,20 @@
+## Introduction
+
+This is a bank application you can run from your command line using Node. You can make deposits and withdrawals (using the bank.makeDeposit(amount) and .makeWithdrawal(amount) functions) and print a statement using the statementPrinter.printStatement() function.
+
 ## Setup
 
-Make sure to install esbuild and jest globally, and the project dependencies:
+To do the application setup, please run the following commands:
+
 nvm use node
 npm install -g esbuild jest
 npm install
 
 npm init -y
 npm install jest-environment-jsdom
+
+To use the application from your command line, run:
+node
 
 How to run the tests:
 jest
