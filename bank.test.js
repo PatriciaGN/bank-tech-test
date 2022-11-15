@@ -98,10 +98,6 @@ describe('Bank', () => {
     }).toThrow('TypeError');
   });
 
-  it('prints a bank statement when no operations have been made', () => {
-    expect(bank.printStatement()).toEqual('date || credit || debit || balance');
-  });
-
   it('initializes an empty operations array', () => {
     expect(bank.operations).toEqual([]);
   });
