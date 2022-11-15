@@ -13,7 +13,20 @@ describe('StatementPrinter', () => {
         '100.00 || '
       );
     });
+
+    it('returns the correct string if a withdrawal has been made', () => {
+      let fakeBank = {
+        operation: ['withdrawal', 100],
+      };
+
+      statementPrinter = new StatementPrinter(fakeBank);
+
+      expect(statementPrinter.creditOrDebit(fakeBank.operation)).toEqual(
+        '|| 100.00 '
+      );
+    });
   });
+
   it('prints a bank statement when no operations have been made', () => {
     let fakeBank = {
       balance: 0,
