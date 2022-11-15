@@ -11,6 +11,10 @@ class StatementPrinter {
         statement += `\n${operation[2]} || ${operation[1].toFixed(
           2
         )} || || ${operation[3].toFixed(2)}`;
+      } else if (operation[0] === 'withdrawal') {
+        statement += `\n${operation[2]} || || ${operation[1].toFixed(
+          2
+        )} || ${operation[3].toFixed(2)}`;
       }
     }
     if (this.operations.length != 0) {
