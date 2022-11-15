@@ -9,7 +9,7 @@ describe('StatementPrinter', () => {
     let statementPrinter = new StatementPrinter(fakeBank);
 
     expect(statementPrinter.printStatement()).toEqual(
-      'date || credit || debit || balance\n'
+      'date || credit || debit || balance'
     );
   });
 
