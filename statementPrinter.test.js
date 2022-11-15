@@ -43,7 +43,7 @@ describe('StatementPrinter', () => {
       balance: 1000,
       operations: [
         ['deposit', 2000, '10/01/2023', 2000],
-        ['deposit', 1000, '13/01/2023', 1000],
+        ['withdrawal', 1000, '13/01/2023', 1000],
       ],
     };
     let statementPrinter = new StatementPrinter(fakeBank);
