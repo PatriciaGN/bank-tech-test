@@ -1,6 +1,19 @@
 const StatementPrinter = require('./statementPrinter');
 
 describe('StatementPrinter', () => {
+  describe('creditOrDebit', () => {
+    it('returns the correct string if a deposit has been made', () => {
+      let fakeBank = {
+        operation: ['deposit', 100],
+      };
+
+      statementPrinter = new StatementPrinter(fakeBank);
+
+      expect(statementPrinter.creditOrDebit(fakeBank.operation)).toEqual(
+        '100.00 || '
+      );
+    });
+  });
   it('prints a bank statement when no operations have been made', () => {
     let fakeBank = {
       balance: 0,
