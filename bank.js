@@ -1,4 +1,5 @@
 const DateStamp = require('./dateStamp');
+const Error = require('./errors');
 
 class Bank {
   constructor(operations = []) {
@@ -6,20 +7,9 @@ class Bank {
     this.operations = operations;
   }
 
-  errorHandling(operationType, amount) {
-    if (amount <= 0 || isNaN(parseFloat(amount))) {
-      throw new TypeError('TypeError');
-    }
-    if (operationType === 'withdrawal') {
-      if (amount > this.balance) {
-        throw new Error('Insuficient funds');
-      }
-    }
-  }
-
-  makeDeposit(amount, date = new DateStamp().getDate()) {
+  makeDeposit(amount, date = new DateStamp().getDate(), error = new Error()) {
     let operationType = 'deposit';
-    this.errorHandling(operationType, amount);
+    error.handleDepositErrors(amount);
     this.operations.push([
       operationType,
       amount,
@@ -28,9 +18,13 @@ class Bank {
     ]);
   }
 
-  makeWithdrawal(amount, date = new DateStamp().getDate()) {
+  makeWithdrawal(
+    amount,
+    date = new DateStamp().getDate(),
+    error = new Error()
+  ) {
     let operationType = 'withdrawal';
-    this.errorHandling(operationType, amount);
+    error.handleWithdrawalErrors(amount, this.balance);
     this.operations.push([
       operationType,
       amount,
