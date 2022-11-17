@@ -16,20 +16,43 @@ Lastly, we have a StatementPrinter class responsible for formatting and printing
 
 ## Setup
 
-To do the application setup, please run the following commands:
+To do the application setup, please run the following commands from the root of the project:
 
+Install node:
+
+```bash
+nvm install node
 nvm use node
-npm install -g esbuild jest
-npm install
+```
 
-npm init -y
-npm install jest-environment-jsdom
+install dependencies:
+
+```bash
+npm install
+```
+
+Install jest
+
+```bash
+npm install -g jest
+```
+
+To run the tests
+
+```bash
+jest
+
+# With coverage
+jest --coverage
+```
 
 To use the application from your command line, run:
-node
+
+`node`
 
 ## Example of usage in node:
 
+```bash
 const Bank = require('./bank')
 const DateStamp = require('./dateStamp')
 const StatementPrinter = require('./statementPrinter')
@@ -42,11 +65,19 @@ bank.makeDeposit(500)
 bank.makeDeposit(1000)
 bank.makeWithdrawal(700)
 statementPrinter.printStatement()
+# date || credit || debit || balance
+# 17/11/2022 || || 700.00 || 800.00
+# 17/11/2022 || 1000.00 || || 1500.00
+# 17/11/2022 || 500.00 || || 500.00
+```
 
-![](Screenshot 2022-11-15 at 16.15.05.png)
+You can see an example by running the following command on the terminal from the root of the project:
 
-How to run the tests:
-jest
+`node exampleUsage.js`
+
+![](usageExample.png)
+
+Note: User input accepts only numeric values (both integers and floating points) over 0.
 
 ## Acceptance criteria
 
